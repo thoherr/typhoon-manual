@@ -2,9 +2,27 @@
 
 This is a manual/cheatsheet for [Superparasites Firmware](https://github.com/patrickdowling/superparasites) installed on a [Typhoon](https://www.modulargrid.net/e/after-later-audio-typhoon).
 
-PDF version can be found [here](https://raw.githubusercontent.com/capital-G/typhoon-manual/main/README.pdf).
+EDIT Thomas Herrmann (thoherr): I added some forced page breaks into the code in order to create a PDF file
+where each mode is described on *exactly 4 pages*. I also increased the size of the module schematics.
+This allows me to print this cheat sheet with 2 pages up on duplex and end up with one sheet of paper for
+every mode.
 
-## Granular Processing
+Original PDF version can be found
+[here](https://raw.githubusercontent.com/capital-G/typhoon-manual/main/README.pdf), my modified version
+[here](https://raw.githubusercontent.com/thoherr/typhoon-manual/main/README.pdf).
+
+\pagebreak
+
+&nbsp;
+\pagebreak
+
+&nbsp;
+\pagebreak
+
+&nbsp;
+\pagebreak
+
+# Granular Processing
 
 [ **\*** O O O ]
 
@@ -12,10 +30,11 @@ The module plays grains continuously, at a rate determined by the DENSITY and SI
 
 It is possible, at any time, to FREEZE the audio buffer from which the grains are taken - In this case, the incoming audio is no longer recorded. Somehow, Clouds is the exact opposite of a sampler: by default, the module always samples the audio it receives, except when it is in the frozen state.
 
-![Granular Processing](panels/granular_processing.png){ height=50% }
+![Granular Processing](panels/granular_processing.png){ height=100% }
 
+\pagebreak
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Position | Selects from which part of the recording buffer the audio grains are played. Turn the knob clockwise to travel back in time.
 Density | Density | At 12 o’clock, no grains are generated. Turn clockwise and grains will be sown randomly, counter-clockwise and they will be played at a constant rate. The further you turn, the higher the overlap between grains.
 Size | Size | At 12 o’clock, the buffer is played at its original frequency.
@@ -30,16 +49,21 @@ Input Level | In Level | From -18dB to +6dB.
 
 Source: [Clouds Manual](https://mutable-instruments.net/modules/clouds/manual/)
 
-## Pitch Shifter
+\pagebreak
+&nbsp;
+\pagebreak
+
+# Pitch Shifter
 
 [ O **\*** O O ]
 
 This mode is quite similar to the granular mode, except that it uses two overlapping grains synchronized with the most salient period of the sound. The grains are carefully spliced so that they mesh well with each other (a technique similar to the “deglitching” of early pitch-shifters).
 
-![Pitch Shifter](panels/pitch_shifter.png){ height=50% }
+![Pitch Shifter](panels/pitch_shifter.png){ height=100% }
 
+\pagebreak
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Pre-Delay | Modulating POSITION when recording is frozen will “scrub” through the audio buffer. Clouds’ uses classic time-domain methods which are not suitable for polyphonic or percussive material (unless this percussive material is breakbeats and you liked Akai samplers. Then: smile).
 Density | Diffusion | Creates a granular diffusion effect based on all-pass filters.
 Size | Size | Controls the size of the overlapping windows used for pitch-shifting and time-stretching – from an extremely grainy “drilling” sound to smooth bits of loops.
@@ -48,16 +72,21 @@ Trigger | Trigger | Sending a trigger to the TRIG input creates a clock-synchron
 
 Source: [Clouds Alternate Modes Manual](https://mutable-instruments.net/modules/clouds/alternate_modes/)
 
-## Looping Delay
+\pagebreak
+&nbsp;
+\cleardoublepage
+
+# Looping Delay
 
 [ O O **\*** O ]
 
 The looping delay mode continuously plays back audio from the buffer without any kind of granularization.
 
-![Looping Delay](panels/looping_delay.png){ height=50% }
+![Looping Delay](panels/looping_delay.png){ height=100% }
 
+\cleardoublepage
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Pre-Delay | Controls the distance between the playback head and the recording head (in other words, the delay time). Modulating POSITION will create effects similar to vinyl scratching or manual manipulation of tape.
 Density | Diffusion | Creates a granular diffusion effect based on all-pass filters.
 Size | Size | Controls the size of the overlapping windows used for pitch-shifting and time-stretching – from an extremely grainy “drilling” sound to smooth bits of loops.
@@ -66,16 +95,23 @@ Hold | Hold | When FREEZE is activated, the content of the audio buffer is loope
 
 Source: [Clouds Alternate Modes Manual](https://mutable-instruments.net/modules/clouds/alternate_modes/)
 
-## Spectral Madness
+\pagebreak
+&nbsp;
+\pagebreak
+
+# Spectral Madness
 
 [ O O O **\*** ]
 
 In this mode, the incoming signal is converted into “frames” of spectral data, that are stored, transformed, recombined, and resynthesized as a time-domain signal.
 
-![Spectral Madness](panels/spectral_madness.png){ height=50% }
+![Spectral Madness](panels/spectral_madness.png){ height=100% }
 
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Position | POSITION selects into which buffer the audio is poured (when FREEZE is not active), or from which buffer the audio is synthesised (when FREEZE is active). For example, set POSITION to its minimum value. Press FREEZE. You get a first texture. Set POSITION to its maximum value. UNFREEZE. Wait for something else to happen in the incoming audio. Press FREEZE again. By moving POSITION you interpolate between the two textures which had been captured at the press of FREEZE. Depending on the quality settings there are 2 to 7 buffers laid out over the course of the POSITION knob. What the module does is crossfade between a “wavetable” of FFT slices.
 Density | Tempo Quantisation | Determines how results from the analyzer are passed to the resynthesizer. Below 12 o’clock, there’s some increasing probability that a given FFT bin won’t get updated, causing a kind of partial freeze. After 12 o’clock, adjacent analysis frames are increasingly merged together (like a low-pass filter in the amplitude each frequency bin). At extreme settings, random phase modulation is applied to smooth things - giving you different flavours of spectral muddling/reverb.
 Size | Spectral Warp | Changes the coefficients of a polynomial that determines how frequencies are mapped between the analysis and synthesis buffers. It’s like a 1-knob GRM Warp. Over the course of the knob it’ll do spectral shifting, but also spectral reversal.
@@ -84,16 +120,22 @@ Trigger | Trigger | Sending a trigger to the TRIG input creates various frequenc
 
 Source: [Clouds Alternate Modes Manual](https://mutable-instruments.net/modules/clouds/alternate_modes/)
 
-## Oliverb
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
+# Oliverb
 
 [ O **\*** **\*** **\*** ]
 
 A new, full-featured creative reverb mode based on the reverb of the original firmware (itself based on a description of the Lexicon 480L), and inspired in design by the Erbe Verb, with CV control over all parameters. It is largely modeless, probably unrealistic and goes far beyond your traditional reverb
 
-![Oliverb](panels/oliverb.png){ height=50% }
+![Oliverb](panels/oliverb.png){ height=100% }
 
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Pre-Delay | The Position knob controls the time it take for the reverb to kick in after a sound has gone in (from 0 to about half a second). When a clock is fed to the Trig input, this knob becomes a clock divider/multiplier for the pre-delay: at 12 o'clock, the pre-delay takes the value of the clock length; clockwise, this clock is divided, and counter-clockwise it is multiplied following the rates: 1/16, 3/32, 1/8, 3/16, 1/4, 3/8, 1/2, 3/4, 1, 3/2, 2/1, 3/1, 4/1, 6/1, 8/1, 12/1 (borrowed from the Echophon). Note that the clock division is limited to the largest division not exceeding the maximum delay; beyond this point, the Position knob will have no effect. Changing pre-delay in real time is smooth and does not affect pitch (it uses the internal time stretcher).
 Density | Decay | The Density knob controls the amount of sound fed back into the reverb loop, i.e. the decay time of the reverb tail. Beyond 3 o'clock, this signal is actually amplified and the reverb enters self-oscillation.
 Size | Reverb Size | The Size knob controls the lengths of all the delays internal to the reverb, i.e. the size of the emulated room. It varies from a small resonator to a huge hall.
@@ -107,16 +149,22 @@ Freeze | Freeze | The Freeze button sets reverb to (near) infinite decay, and mu
 
 Source: [mqtthiqs Parasites](https://mqtthiqs.github.io/parasites/clouds.html)
 
-## Resonator
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
+# Resonator
 
 [ **\*** O **\*** **\*** ]
 
 It is a dual-voice, four-parts resonator (or comb filter) effect with built-in capability for polyphonic Karplus-Strong plucked string synthesis, and more. You access it by long-pressing the Blend button until LEDs become orange, and press it again several times until only the second LED is unlit (in other words, if LEDs 1, 3 and 4 are lit).
 
-![Resonator](panels/resonator.png){ height=50% }
+![Resonator](panels/resonator.png){ height=100% }
 
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Timbre Duration | Controls the timbre and duration of the noise burst. CCW, it will be longer and more dampened; CW, it will be shorter and more high pitched. At both ends of the knob, the burst will be inaudible (too damped or too short), which you can use to "mute" a voice.
 Density | Decay | Decay time of the current voice. Beyond approx. 3 o'clock, decay is infinite and the sound sustains forever (you can use it as a traditional oscillator).
 Size | Chord | Chord selection for the current voice. Morphs gradually between Unison, Fat, Superfat, Fat power, Fat octave, Octaves, Power, Major, Major7, Minor7, Minor, Sus2, Sus4, Minor9, Major9, Minor11, Major11, and Major11.
@@ -131,7 +179,10 @@ Tune | Pitch | Base pitch of the current voice. At 12 o'clock, the pitch is A3 (
 
 Source: [mqtthiqs Parasites](https://mqtthiqs.github.io/parasites/clouds.html)
 
-## Kammerl Beat Repeat
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
+# Kammerl Beat Repeat
 
 [ **\*** **\*** O **\*** ]
 
@@ -139,10 +190,13 @@ Source: [mqtthiqs Parasites](https://mqtthiqs.github.io/parasites/clouds.html)
 
 The Kammerl Beat-Repeat mode analyzes the incoming clock signal to enable real-time slicing of the audio input. It manages multiple slices in real-time which can be individually selected. Each slice can be played back with different loop, pitch and distortion settings.
 
-![Kammerl Beat Repeat](panels/beat_repeat.png){ height=50% }
+![Kammerl Beat Repeat](panels/beat_repeat.png){ height=100% }
 
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Loop Begin | Defines the beginning of the loop interval relative to the total slice duration. To support in-sync beat repetitions, it is quantized as follows: [0-1/64] free/unquantized, 1/64, 1/32, 1/16, 1/8, 1/4, 1/3, 1/2, 1.
 Density | Loop Size Modulation | Enables a decreasing loop size towards the slice end. This enables a ping-pong bouncing ball effect: Tak tak tak taktak tatatatatttttttt
 Size | Loop Size | Defines the size of the loop interval relative to the total slice duration as well as the loop mode (regular/alternating). To support in-sync beat repetitions, it is quantized as follows: **Regular** from the left to 12 o'clock: [0-1/64] free/unquantized, 1/64, 1/32, 1/16, 1/8, 1/4, 1/3, 1/2, **Alternating** from 12 o'clock to the right: 1/2, 1/3, 1/4, 1/8, 1/16, 1/32, 1/64, [1/64-0] free/unquantized
@@ -156,16 +210,22 @@ Freeze | Freeze | Enables slice processing / beat-repeating. If not enabled, sli
 
 Source: [Kammerl Clouds](https://www.kammerl.de/audio/clouds/)
 
-## Spectral Clouds
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
+# Spectral Clouds
 
 [ **\*** **\*** **\*** O ]
 
 The Spectral Clouds mode creates cloud-like frequency spectras. It is a high-resolution multiband filter with randomly modulated frequency bands. The logarithmic divisions of the frequency spectrum result in a continuously morphing but musical sounding filter. This mode is inspired by this FFT Randomizer project.
 
-![Spectral Clouds](panels/spectral_clouds.png){ height=50% }
+![Spectral Clouds](panels/spectral_clouds.png){ height=100% }
 
+<div style="page-break-after: always;">
+\cleardoublepage
+</div>
 Original Button | Parameter | Description
---- | --- | --------
+--- | --- | ------------
 Position | Frequency band probability | Defines the probability of a frequency band to become enabled. To the left all frequency bands are disabled. Check out the sweet spot where only a few frequency bands are active.
 Density | Filter Smoothing | Defines the smoothing intensity on the frequency band division as well as the filter band attenuation changes during "trigger input" events. To the left, filter changes are applied immediately; to the right, the current filter configurations is hold.
 Size | Frequency band division | Controls the number of filter bands and their corresponding frequency width. To the left, the frequency spectrum is split into 4 filter bands and to the right into 128 filter bands. All frequency band divisions are applied in logarithmic scale to sound musical.
@@ -178,6 +238,11 @@ Tune | Pitch | Pitch shifting applied to the Spectral Clouds output.
 Trigger | Trigger | Randomizes the set of active frequency bands and defines their random attenuation intensity. Note that these trigger events can also be simulated with the second blend mode ("Probability of random filter changes").
 
 Source: [Kammerl Clouds](https://www.kammerl.de/audio/clouds/)
+
+\pagebreak
+
+&nbsp;
+\pagebreak
 
 ## License
 
@@ -192,4 +257,3 @@ cc-by-sa 3.0
 
 ### 1.0
 
-* Init release
